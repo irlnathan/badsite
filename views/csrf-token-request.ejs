@@ -2,20 +2,20 @@
   <h1>Understanding the <i>/csrfToken</i> route in Sails</h1>
   <h4>Source code available on <a href="">github.</a></h4>
   <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
-    asdf</p>
+    These series of tests are to gain a better understanding of what has access to the <i>/csrfToken</i> route.</p>
   <b>To see the effect of each button, open your browser's console.</b>
   <div class="row">
     <div class="col-md-4">
       <button class="btn btn-primary" style="outline: none" id="request-csrf-token-button">
         <span class="badge">1 </span>
-        Request CSRF Token
+        Request CSRF Token from different domain site CSRF-Enabled No-CORS
       </button> 
     </div><!-- class="col-md-4" -->
   </div><!-- class="row" -->
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        This    
+        This is a get request to <a href="https://csrftokenon.herokuapp.com/csrfToken">https://csrftokenon.herokuapp.com/csrfToken</a>, which has CSRF token enabled, but no CORS. The CSRF token request will be blocked.   
       </div> <!-- class="panel-body" -->
     </div> <!-- class="panel panel-default" -->
   </div> <!-- class="col-md-12" -->
@@ -24,14 +24,30 @@
     <div class="col-md-4">
       <button class="btn btn-primary" style="outline: none" id="request-csrf-token-cors-button">
         <span class="badge">2 </span>
-        Request CSRF Token from site with CORS enabled
+        Request CSRF Token from different domain site CSRF-Enabled CORS-Enabled
       </button> 
     </div><!-- class="col-md-4" -->
   </div><!-- class="row" -->
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        This    
+        This is a get request to <a href="https://csrftokenon.herokuapp.com/csrfToken">https://csrftokenon.herokuapp.com/csrfToken</a>, which has CSRF token enabled and CORS all routes enabled. The CSRF token request will be blocked.    
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
+
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-primary" style="outline: none" id="request-csrf-token-origin-button">
+        <span class="badge">3 </span>
+        Request CSRF Token from different domain site CSRF-Enabled No-CORS ORIGIN-enabled
+      </button> 
+    </div><!-- class="col-md-4" -->
+  </div><!-- class="row" -->
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This is a get request to <a href="https://csrfontokenon.herokuapp.com/csrfToken">https://csrfontokenon.herokuapp.com/csrfToken</a>, which has CSRF token enabled no CORS, but the CSRF origin has been enabled to this domain. The CSRF token request should come back with the token.    
       </div> <!-- class="panel-body" -->
     </div> <!-- class="panel panel-default" -->
   </div> <!-- class="col-md-12" -->
