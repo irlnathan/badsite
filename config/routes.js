@@ -38,6 +38,10 @@ module.exports.routes = {
 
   '/csrftokenon': {
     view: 'csrfonversion'
+  },
+
+  '/csrftokenrequest': {
+    view: 'csrf-token-request'
   }
 
   /***************************************************************************
