@@ -37,7 +37,7 @@ module.exports.routes = {
   },
 
   '/csrftokenon': {
-    view: 'csrftokenon'
+    view: 'csrfonversion'
   }
 
   /***************************************************************************
